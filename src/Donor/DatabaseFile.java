@@ -5,6 +5,8 @@
  */
 package Donor;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +20,7 @@ public class DatabaseFile {
             cleanslate_stm,
             del_stm,
             get_stm;
-          public DatabaseFile(){
+          public DatabaseFile() {
         Connection conn;
         try {
           
@@ -38,6 +40,7 @@ public class DatabaseFile {
             e.printStackTrace();
             System.exit(0);
         }
+          
     }
     public void add(DonorModel donor1){
            try{
@@ -55,10 +58,12 @@ public class DatabaseFile {
     public void delete(int id){
         try{
             del_stm.setInt(1,id);
+            System.out.println("Working");
             del_stm.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
         }
+      
         }
     public DonorModel getDonor(int id){
         try{
